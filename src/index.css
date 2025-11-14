@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 20 14% 4%;
+    --foreground: 36 100% 99%;
+
+    --card: 20 14% 8%;
+    --card-foreground: 36 100% 99%;
+
+    --popover: 20 14% 6%;
+    --popover-foreground: 36 100% 99%;
+
+    --primary: 38 92% 50%;
+    --primary-foreground: 20 14% 4%;
+    --primary-glow: 45 100% 51%;
+
+    --secondary: 30 80% 55%;
+    --secondary-foreground: 20 14% 4%;
+
+    --muted: 20 14% 15%;
+    --muted-foreground: 36 20% 65%;
+
+    --accent: 45 100% 51%;
+    --accent-foreground: 20 14% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 36 100% 99%;
+
+    --border: 20 14% 20%;
+    --input: 20 14% 15%;
+    --ring: 38 92% 50%;
+
+    --radius: 0.75rem;
+
+    /* Glassmorphism */
+    --glass-bg: 20 14% 8%;
+    --glass-border: 36 100% 99%;
+    --glass-opacity: 0.1;
+    
+    /* 3D Shadows */
+    --shadow-3d: 0 10px 40px -10px hsl(38 92% 50% / 0.4);
+    --shadow-elevated: 0 20px 60px -15px hsl(38 92% 50% / 0.3);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(38 92% 50%), hsl(45 100% 51%));
+    --gradient-hero: linear-gradient(135deg, hsl(20 14% 4% / 0.9), hsl(20 14% 8% / 0.7));
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: hsl(var(--glass-bg) / var(--glass-opacity));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--glass-border) / 0.1);
+  }
+  
+  .glass-strong {
+    background: hsl(var(--glass-bg) / 0.3);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--glass-border) / 0.15);
+  }
+  
+  .shadow-3d {
+    box-shadow: var(--shadow-3d);
+  }
+  
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+  
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
